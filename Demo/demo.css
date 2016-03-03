@@ -1,0 +1,44 @@
+body{
+	margin:0;
+	padding:0;
+	font-family: arial, verdana, sans-serif
+}
+
+table{
+	border-collapse:collapse;
+	border:1px solid #999;
+	width:400px;
+}
+
+th,td{
+	padding:5px;
+	border:1px solid #999;
+}
+
+th{
+	background:#eee;
+}
+
+#page{
+	width: 100%;
+	max-width: 1024px;
+	min-width: 600px;
+	margin: 0 auto;
+	padding:5px;
+}
+
+div.table{
+	border-collapse: separate; 
+	display: table;
+	width: 100%;
+}
+
+div.table-row{
+	display: table-row;
+}
+
+div.table-cell{
+	display: table-cell;
+	vertical-align: top;
+	width: 50%;
+}

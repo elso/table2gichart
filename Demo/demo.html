@@ -1,0 +1,120 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Seo friendly charts from accessible data tables</title>
+	<link rel="stylesheet" href="demo.css" type="text/css">
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mootools/1.5.2/mootools-core.min.js"></script>
+	<script type="text/javascript" src="../Source/table2gichart.js"></script>
+	<script>
+		window.addEvent('domready', function() {
+			$$('.table2chart').table2gichart();
+	
+			$$('.donutchart').table2gichart({
+				legend : {
+					position : 'none'
+				},
+				pieSliceText : 'none',
+				chartArea : {
+					left : 30,
+					top : 30,
+					width : '85%',
+					height : '85%'
+				},
+				pieHole : 0.4,
+				tooltip : {
+					text : 'percentage'
+				},
+				onSelect : function(self) {
+					var selected = self.chart.getSelection();
+					alert('click on row: ' + selected[0]['row']);
+				}
+			});
+		});
+	</script>
+</head> 
+<body> 
+<div id="page">
+	<h1>table2gichart - Generating Charts From Accessible Data Tables</h1>
+	<p>This Demo shows you, how this little mootools script works. You can use all options from <a href="https://google-developers.appspot.com/chart/" target="_blank">Goole Interactive Chart Tools</a> to set the chart properties.<p>
+	<p></p>
+	<h2>Simple Pie Chart</h2>
+	<p>First example is a simple pie chart which is the default chart type. The data html table is replacing with the chart.</p>
+	<table class="table2chart" data-title="Simple Pie Chart">
+	<thead><tr><th>Browser</th><th>Percent</th></tr></thead>
+	<tbody>
+	<tr><td>MSIE</td><td>20</td></tr>
+	<tr><td>FireFox</td><td>100</td></tr>
+	<tr><td>Camino</td><td>70</td></tr>
+	<tr><td>Opera</td><td>90</td></tr>
+	<tr><td>Safari</td><td>90</td></tr>
+	</tbody>
+	</table>
+	<p>The next one use the same table stylesheet class (table2chart) with new chart title and other data and size (700x500)</p>
+	<table class="table2chart" data-title="Saled Cars 2016" data-size="700x500">
+	<thead><tr><th>Brand</th><th>Count</th></tr></thead>
+	<tbody>
+	<tr><td>Ford</td><td>20094</td></tr>
+	<tr><td>GM</td><td>43943</td></tr>
+	<tr><td>BMW</td><td>10243</td></tr>
+	<tr><td>Mercedes</td><td>5943</td></tr>
+	<tr><td>Tesla</td><td>943</td></tr>
+	</tbody>
+	</table>
+	<p>Same as previous chart with some google chart options, onSelect Event and hidden data table drawn as donut chart.</p>
+	<table class="donutchart" data-title="Saled Cars 2016" data-size="700x500" data-tableview="hidden">
+	<thead><tr><th>Brand</th><th>Count</th></tr></thead>
+	<tbody>
+	<tr><td>Ford</td><td>20094</td></tr>
+	<tr><td>GM</td><td>43943</td></tr>
+	<tr><td>BMW</td><td>10243</td></tr>
+	<tr><td>Mercedes</td><td>5943</td></tr>
+	<tr><td>Tesla</td><td>943</td></tr>
+	</tbody>
+	</table>
+	<h2>Horizontal Bar Chart</h2>
+	<p>This chart is also initialized by css class table2chart but the html element data-chart is set to 'ColumnChart' to draw a horizontal bar chart. data-tableview is set to "show" to prevent delete data table. data-chartid defines where chart should be drawn. With data-url at &lt;tr&gt; tag you can set a link which is opened by click on chart graph. The default bar colors are set by data-style.</p>
+	<div class="table">
+		<div class="table-row">
+			<div class="table-cell">
+				<table class="table2chart" data-size="400x250" data-title="Browsers for this site, 30 May 2010" data-chart="ColumnChart" data-tableview="show" data-chartid="columnchart">
+				<thead><tr><th>Browser</th><th>Percent</th></tr></thead>
+				<tbody>
+				<tr data-url="http://www.microsoft.com" data-style="color: red"><td>MSIE</td><td>25</td></tr>
+				<tr data-url="http://www.mozilla.org" data-style="color: yellow"><td>FireFox</td><td>120</td></tr>
+				<tr data-url="http://www.caminobrowser.org" data-style="color: brown"><td>Camino</td><td>130</td></tr>
+				<tr data-url="http://www.opera.com" data-style="color: orange"><td>Opera</td><td>280</td></tr>
+				<tr data-url="http://www.apple.com/de/safari/" data-style="color: blue"><td>Safari</td><td>50</td></tr>
+				</tbody>
+				</table>
+			</div>
+			<div class="table-cell">
+				<div id="columnchart"></div>
+			</div>
+		</div>
+	</div>
+	<h2>Vertical Bar Chart</h2>
+	<p>This data table contains links instead of data-url param and data-chart is set to 'BarChart'. If you click on a bar graph you will be also redirect.</p>
+	<div class="table">
+		<div class="table-row">
+			<div class="table-cell">
+				<table class="table2chart" data-size="400x250" data-title="Browsers for this site, 30 May 2010" data-chart="BarChart" data-tableview="show" data-chartid="vcolumnchart">
+				<thead><tr><th>Browser</th><th>Percent</th></tr></thead>
+				<tbody>
+				<tr><td><a href="http://www.microsoft.com">MSIE</a></td><td>25</td></tr>
+				<tr><td><a href="http://www.mozilla.org">FireFox</a></td><td>120</td></tr>
+				<tr><td><a href="http://www.caminobrowser.org">Camino</a></td><td>130</td></tr>
+				<tr><td><a href="http://www.opera.com">Opera</a></td><td>280</td></tr>
+				<tr><td><a href="http://www.apple.com/de/safari/">Safari</a></td><td>50</td></tr>
+				</tbody>
+				</table>
+			</div>
+			<div class="table-cell">
+				<div id="vcolumnchart"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</body> 
+</html> 
