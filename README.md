@@ -1,7 +1,7 @@
 table2gichart
 =============
 
-Generating Google Interactive Charts https://developers.google.com/chart/interactive/docs/ from simple html data table written in Mootools. All google charts and options can set to draw the charts you like. Absolutly Seo friendly!
+Generating [Google Interactive Charts](https://developers.google.com/chart/interactive/docs/) from simple html data table written in Mootools. All google charts and options can set to draw the charts you like. Absolutly Seo friendly!
 
 ![Screenshot](http://i.imgur.com/NUIvbdG.jpg)
 
@@ -162,4 +162,4 @@ Fired when chart is clicked
 
 Demo
 ----
-http://elso.github.io/table2gichart/
+[Click here](http://elso.github.io/table2gichart/)
