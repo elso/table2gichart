@@ -5,15 +5,33 @@ Generating Google Interactive Charts https://developers.google.com/chart/interac
 
 ![Screenshot](http://i.imgur.com/NUIvbdG.jpg)
 
-How to use?
+How to use
 -----------
 
-### Syntax
+First you must to include the JS files in the head of your HTML document.
 
-	window.addEvent('domready',function(){
-		var chart = $$(element).table2gichart(options);
-	});
-	
+       #Html
+       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+       <script type="text/javascript" src="mootools.js"></script>
+       <script type="text/javascript" src="table2gichart.min.js"></script>
+
+Add the script to the top of the body with domready Event:
+
+      #JS 
+      <script type="text/javascript">
+            window.addEvent('domready',function(){
+               var chart = $$(element).table2gichart(options);
+            });  
+      </script>
+
+OR add the script to the end of the body:
+
+       #JS
+       <script type="text/javascript">
+         var chart = $$(element).table2gichart(options);
+       </script>
+
+
 ### Arguments
 
 1. element - ([element/elements](http://mootools.net/docs/core/Element/Element)) The element to draw chart.
@@ -141,3 +159,7 @@ Fired when chart is clicked
 ##### Arguments
 
 1. self - complete chart class reference (this)
+
+Demo
+----
+http://elso.github.io/table2gichart/
