@@ -1,4 +1,4 @@
-/*!
+/*
 ---
 description: Generating Google Interactiv Charts from accessible HTML tables.
 
